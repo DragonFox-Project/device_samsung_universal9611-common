@@ -23,7 +23,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, vendor/samsung/universal9611-common/universal9611-common-vendor.mk)
 
 # Debug utils
-$(call inherit-product, $(COMMON_PATH)/debug-tools/debug.mk)
+$(call inherit-product, hardware/samsung-ext/interfaces/debug-tools/debug.mk)
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -71,7 +71,11 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.6-service_64.samsung \
-    libsensorndkbridge
+    libsensorndkbridge \
+    libhwjpeg
+
+# Apeture
+TARGET_BUILD_APERTURE_CAMERA := true
 
 PRODUCT_PACKAGES += \
     libhwjpeg
@@ -385,7 +389,7 @@ PRODUCT_COPY_FILES += \
 # Touch HAL
 PRODUCT_PACKAGES += \
     vendor.lineage.touch@1.0-service.samsung \
-    vendor.lineage.touch@1.0-service.singletap
+    vendor.lineage.touch@1.0-service.ss
 
 # USB
 PRODUCT_PACKAGES += \
